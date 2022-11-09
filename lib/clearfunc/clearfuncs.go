@@ -9,7 +9,7 @@ var (
 	mut        sync.Mutex
 )
 
-func RegisterClearFuncs(f ...func() error) {
+func Register(f ...func() error) {
 	mut.Lock()
 	defer mut.Unlock()
 
@@ -18,7 +18,7 @@ func RegisterClearFuncs(f ...func() error) {
 	}
 }
 
-func RunClearFuncs() []error {
+func RunAndComplete() []error {
 	mut.Lock()
 	defer mut.Unlock()
 
