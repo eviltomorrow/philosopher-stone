@@ -1,4 +1,4 @@
-package runutil
+package runtimeutil
 
 import (
 	"fmt"
@@ -7,7 +7,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/eviltomorrow/rogue/lib/util"
+	"github.com/eviltomorrow/philosopher-stone/lib/netutil"
+	"github.com/eviltomorrow/philosopher-stone/lib/timeutil"
 )
 
 var (
@@ -19,7 +20,7 @@ var (
 	OS             = runtime.GOOS
 	Arch           = runtime.GOARCH
 	RunningTime    = func() string {
-		return util.FormatDuration(time.Since(LaunchTime))
+		return timeutil.FormatDuration(time.Since(LaunchTime))
 	}
 	IP string
 )
@@ -41,7 +42,7 @@ func init() {
 		HostName = name
 	}
 
-	localIP, err := util.GetLocalIP2()
+	localIP, err := netutil.GetLocalIP2()
 	if err == nil {
 		IP = localIP
 	}

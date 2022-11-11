@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/eviltomorrow/philosopher-stone/lib/fs"
-	"github.com/eviltomorrow/philosopher-stone/lib/runutil"
+	"github.com/eviltomorrow/philosopher-stone/lib/runtimeutil"
 )
 
 func CreatePidFile(path string) (func() error, error) {
@@ -14,7 +14,7 @@ func CreatePidFile(path string) (func() error, error) {
 		return nil, err
 	}
 
-	file.WriteString(fmt.Sprintf("%d", runutil.Pid))
+	file.WriteString(fmt.Sprintf("%d", runtimeutil.Pid))
 	if err := file.Sync(); err != nil {
 		file.Close()
 		return nil, err
