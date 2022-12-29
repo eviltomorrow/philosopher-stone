@@ -3,7 +3,9 @@ module github.com/eviltomorrow/philosopher-stone
 go 1.19
 
 require (
+	github.com/go-sql-driver/mysql v1.7.0
 	github.com/json-iterator/go v1.1.12
+	github.com/mattn/go-sqlite3 v1.14.16
 	golang.org/x/sys v0.2.0
 	google.golang.org/grpc v1.50.1
 )
